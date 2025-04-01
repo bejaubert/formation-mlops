@@ -84,25 +84,13 @@ async def predict(
 ) -> Dict:
     """
     Predict NACE code.
-    This endpoint accepts input data as query parameters and uses the loaded
-    ML model to predict the NACE code based on the input data.
-
-    Args:
-
-        description (str): The activity description.
-
-        nb_echoes_max (int): Maximum number of echoes to consider.
-            Default is 5.
-
-    Returns:
-
-        Dict: Response containing NACE codes.
     """
-    query = {
-        "query": [description],
-        "k": nb_echoes_max,
-    }
+    # Conversion de l'input en liste simple
+    input_data = [description]
 
-    predictions = model.predict(query)
+    predictions = model.predict(
+        input_data,  # Liste de strings attendue par MLflow
+        params={"k": nb_echoes_max}  # Passage correct des paramètres
+    )
 
-    return predictions[0]
+    return predictions[0]  # Même format de retour qu'avant
