@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: api
-          image: inseefrlab/formation-mlops:no-logs
+          image: inseefrlab/formation-mlops:main
           imagePullPolicy: Always
           env:
             - name: MLFLOW_TRACKING_URI

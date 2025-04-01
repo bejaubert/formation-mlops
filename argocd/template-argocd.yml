@@ -5,12 +5,12 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/<your-github-id>/formation-mlops.git
+    repoURL: https://github.com/bejaubert/formation-mlops.git
     targetRevision: HEAD
     path: kubernetes
   destination:
     server: https://kubernetes.default.svc
-    namespace: user-<your-sspcloud-id>
+    namespace: user-benjamin389
   syncPolicy:
     automated:
       selfHeal: true
